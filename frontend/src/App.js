@@ -26,6 +26,21 @@ export default class App extends Component {
   }
 
   render() {
-    return <span>Desafio 03</span>
+    const { candidates } = this.state;
+
+    if (candidates.length === 0) {
+      return <span>Carregando...</span>
+    }
+    return (
+      <div>
+        {candidates.map(({ id, name, votes }) => {
+          return (
+            <p key={id}>
+              {name} - {votes}
+            </p>
+          );
+        })}
+      </div>
+    )
   }
 }
