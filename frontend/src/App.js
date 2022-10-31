@@ -11,7 +11,19 @@ export default class App extends Component {
     this.interval = null;
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      fetch('http://localhost:8080/votes')
+        .then((res) => {
+          return res.json();
+        })
+        .then((json) => {
+          this.setState({
+            candidates: json.candidates,
+          })
+        })
+    }, 1000);
+  }
 
   render() {
     return <span>Desafio 03</span>
