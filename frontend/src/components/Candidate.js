@@ -1,4 +1,5 @@
 import React from 'react';
+import Info from './Info';
 import Picture from './Picture';
 import Position from './Position';
 
@@ -11,6 +12,7 @@ export default function Candidate({ candidate, position }) {
     <div>
       <Position>{position}</Position>
       <Picture imageSource={imageSource} description={name} />
+      <Info />
       {name} - {votes}
     </div>
   )
