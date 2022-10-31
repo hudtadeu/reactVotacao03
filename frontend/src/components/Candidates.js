@@ -1,15 +1,18 @@
 import React from 'react'
+import Candidate from './Candidate';
 import Card from './Card';
 
 export default function Candidates({ candidates }) {
   return (
     <div>
-      {candidates.map(({ id, name, votes }) => {
-        return (
-          <Card key={id}>
-            {name} - {votes}
-          </Card>
-        );
+      {candidates.map((candidate) => {
+        const { id } = candidate;
+
+      return (
+      <Card key={id}>
+        <Candidate candidate={candidate} />
+      </Card>
+      );
       })}</div>
   )
 }
