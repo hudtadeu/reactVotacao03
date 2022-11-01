@@ -1,7 +1,22 @@
 import React from 'react';
 
-export default function Votes({ children }) {
+import CountUp from 'react-countup';
+
+export default function Votes({ value, previous }) {
   return (
-    <div>{children}</div>
+    <div>
+      <CountUp
+        start={previous || 0}
+        end={value}
+        duration={0.6}
+        separator="."
+      >
+        {({ countUpRef }) => (
+          <div>
+            <span ref={countUpRef} />
+          </div>
+        )}
+      </CountUp>
+    </div>
   )
 }
